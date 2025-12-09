@@ -164,3 +164,43 @@ RNF128<sup>fl/fl</sup>Lyz2<sup>cre</sup>
 “Cre小鼠”是携带了 **Cre 重组酶基因** 的转基因小鼠。它不是单独使用的，而是需要与携带了 **loxP 位点修饰的目标基因（floxed 小鼠）** 的小鼠交配。通过 **Cre 酶对 loxP 位点的特异性重组作用**，可以在**特定细胞类型**（由 Cre 的启动子决定）和/或**特定时间点**（由诱导系统决定）实现对目标基因的条件性敲除、激活或细胞标记。它是现代遗传学研究，尤其是哺乳动物基因功能研究和疾病模型构建中不可或缺的强大工具。
 
 如果你有具体的研究目的（比如想在哪种组织中敲除哪个基因），我可以提供更具体的建议（例如选择哪种 Cre 品系）。
+
+
+### cytoBand 文件格式
+cytoband是染色体细胞遗传学条带Cytogenetic Bands，也成染色体带型文件。
+文件一共五列
+```bash
+chr1	0	2300000	p36.33	gneg
+chr1	2300000	5300000	p36.32	gpos25
+chr1	5300000	7100000	p36.31	gneg
+chr1	7100000	9100000	p36.23	gpos25
+chr1	9100000	12500000	p36.22	gneg
+chr1	12500000	15900000	p36.21	gpos50
+chr1	15900000	20100000	p36.13	gneg
+chr1	20100000	23600000	p36.12	gpos25
+chr1	23600000	27600000	p36.11	gneg
+chr1	27600000	29900000	p35.3	gpos25
+```
+
+(1).染色体名称：如chr1, chr2, chrX等  
+(2).起始位置：0-based起始坐标（通常）  
+(3).结束位置：1-based结束坐标  
+(4).条带名称：如p36.33, q21.1  
+(5).Giemsa染色状态：  
+gneg：浅染（基因丰富区域）  
+gpos25：浅染  
+gpos50：中等染色  
+gpos75：深染  
+gpos100：最深染（基因贫乏区域）  
+acen：着丝粒区域  
+stalk：核仁组织区  
+gvar：可变区域  
+
+```bash
+"hg38": "http://hgdownload.soe.ucsc.edu/goldenPath/hg38/database/cytoBand.txt.gz",
+"hg19": "http://hgdownload.soe.ucsc.edu/goldenPath/hg19/database/cytoBand.txt.gz",
+"mm10": "http://hgdownload.soe.ucsc.edu/goldenPath/mm10/database/cytoBand.txt.gz",
+"mm9": "http://hgdownload.soe.ucsc.edu/goldenPath/mm9/database/cytoBand.txt.gz",
+"dm6": "http://hgdownload.soe.ucsc.edu/goldenPath/dm6/database/cytoBand.txt.gz",
+```
+[ucsc_ref](https://genome.ucsc.edu/cgi-bin/hgTables?db=hg38&hgta_group=map&hgta_track=cytoBand&hgta_table=cytoBand&hgta_doSchema=describe+table+schema)
